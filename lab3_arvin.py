@@ -1,32 +1,40 @@
 import turtle
 
-arvin = turtle.Turtle()
-arvin.speed(0)
-arvin.width(15)
-
 screen = turtle.Screen()
-screen.bgcolor("white")
+alex = turtle.Turtle()
+alex.speed(5)
 
-colors = ["red", "orange", "yellow", "green", "cyan", "blue", "purple"]
+alex.clear()
+alex.up()
+alex.goto(0, 0)
+alex.down()
 
-radius = 200
+side = 100
+sides = 6
+angle = 360 / sides
 
-arvin.penup()
-arvin.goto(-radius, -50)
-arvin.setheading(0)
-arvin.pendown()
+for _ in range(sides):
+    alex.forward(side)
+    alex.left(angle)
 
-for color in colors:
-    arvin.color(color)
-    arvin.circle(radius, 180)
+alex.up()
 
-    arvin.left(180)
-    arvin.forward(15)
-    arvin.left(180)
-    arvin.right(90)
-    arvin.forward(15)
-    arvin.left(90)
+alex.clear()
+alex.speed(6)
+alex.pensize(8)
 
-    radius = radius - 15
+colors = ["violet", "indigo", "blue", "green", "yellow", "orange", "red"]
 
-turtle.done()
+radius = 60
+
+for c in colors:
+    alex.color(c)
+    alex.goto(0, -radius)
+    alex.down()
+    alex.circle(radius, 180)
+    alex.up()
+    radius += 15
+
+alex.hideturtle()
+
+screen.mainloop()
